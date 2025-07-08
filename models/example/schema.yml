@@ -1,0 +1,35 @@
+
+# version: 2
+
+# models:
+#     - name: my_first_dbt_model
+#       description: "A starter dbt model"
+#       columns:
+#           - name: id
+#             description: "The primary key for this table"
+#             tests:
+#                 - unique
+#                 - not_null
+
+#     - name: my_second_dbt_model
+#       description: "A starter dbt model"
+#       columns:
+#           - name: id
+#             description: "The primary key for this table"
+#             tests:
+#                 - unique
+#                 - not_null
+version: 2
+
+sources:
+  - name: raw
+    schema: raw
+    tables:
+      - name: orders_raw
+
+models:
+  - name: stg_orders
+    description: "Cleans and formats the raw eCommerce orders data"
+    columns:
+      - name: invoice_no
+        description: "Invoice number for the transaction"
