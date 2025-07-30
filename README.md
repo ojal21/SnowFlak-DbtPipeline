@@ -151,6 +151,4 @@ dbt docs generate && dbt docs serve
 Interested in the **dashboarding layer** or **real-time ingestion**?
 Open to collaborations or extensions using Apache Airflow or event-based pipelines.
 
----
 
-Let me know if you'd like this adapted into a `README.ipynb`, or split by folders with individual `README.md` files inside `/project1` and `/project2`.
