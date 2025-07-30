@@ -59,15 +59,38 @@ sources:
     # -name : stg_epiclim
 
 models:
+  - name: stg_epiclim
+    description: "Staging model that cleans, casts, and prepares raw epidemic + climate data"
+    columns:
+      - name: week_label
+        description: "Formatted week indicator"
+        tests: [not_null]
+      - name: state
+      - name: district
+      - name: disease
+        tests: [not_null]
+      - name: cases
+      - name: deaths
+      - name: outbreak_date
+        description: "Date of the outbreak (built from year/month/day)"
+      - name: temperature_k
+      - name: precip_mm
+
   - name: fct_disease_metrics
     description: "Aggregated disease and climate metrics by location and week"
     columns:
       - name: week_label
+        description: "Week of outbreak (used as grouping key)"
         tests: [not_null]
+      - name: state
+      - name: district
       - name: disease
+        description: "Disease being tracked"
         tests: [not_null]
       - name: total_cases
+        description: "Total number of disease cases in that week/location"
       - name: total_deaths
       - name: avg_temperature_k
       - name: avg_precip_mm
       - name: outbreak_count
+        description: "Number of individual records grouped into this summary"
