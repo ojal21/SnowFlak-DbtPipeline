@@ -33,6 +33,7 @@ sources:
     tables:
       - name: epiclim_raw
 
+  
 # models:
 #   - name: stg_orders
 #     description: "Cleans and formats the raw eCommerce orders data"
@@ -56,3 +57,17 @@ sources:
 #       - name: last_order_date
 #         description: "Most recent purchase timestamp"
     # -name : stg_epiclim
+
+models:
+  - name: fct_disease_metrics
+    description: "Aggregated disease and climate metrics by location and week"
+    columns:
+      - name: week_label
+        tests: [not_null]
+      - name: disease
+        tests: [not_null]
+      - name: total_cases
+      - name: total_deaths
+      - name: avg_temperature_k
+      - name: avg_precip_mm
+      - name: outbreak_count
